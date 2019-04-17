@@ -1,0 +1,33 @@
+{
+  "parser"  : "babel-eslint",
+  "extends" : [
+    "standard",
+    "standard-react"
+  ],
+  "plugins": [
+    "react",
+    "react-native"
+  ],
+  "rules": {
+    "jsx-quotes": 1,
+    "semi" : [2, "never"],
+    "max-len": [2, 120, 2],
+    "object-curly-spacing": [0, "never"]
+  },
+  "globals": {
+    "fetch": false,
+    "FormData": false,
+    "__DEV__": false,
+    "SCREEN_WIDTH": false,
+    "SCREEN_HEIGHT": false,
+    "iOS": false,
+    "message": false,
+    "Android": false,
+    "isIPhoneX": false,
+    "sp": false,
+    "AppVersion": false,
+    "DeviceUniqueID": false,
+    "ApplicationName": false,
+    "XMLHttpRequest": false
+  }
+}
