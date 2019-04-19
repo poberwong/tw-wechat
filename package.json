@@ -17,6 +17,7 @@
     "@babel/runtime": "^7.4.3",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.7.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-react": "^7.0.2",
@@ -37,6 +38,9 @@
   "config": {
     "ghooks": {
       "pre-commit": "npm run lint"
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
