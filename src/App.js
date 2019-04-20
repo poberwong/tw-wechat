@@ -1,3 +1,4 @@
+import './helpers/global'
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, Animated, SafeAreaView } from 'react-native'
 import BaseFlatList from './components/BaseFlatList'
@@ -10,7 +11,6 @@ import TweetComments from './components/TweetComments'
 import AnimatedImplementation from 'AnimatedImplementation'
 import { NAV_BAR_HEIGHT } from './components/NavigationBar'
 import { Color } from './helpers/Constants'
-import './helpers/global'
 
 /**
  * avaliable tweets and page size
