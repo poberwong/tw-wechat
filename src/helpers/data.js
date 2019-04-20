@@ -4,7 +4,7 @@
  */
 
 export const profile = {
-  'profile-image': 'http://img2.findthebest.com/sites/default/files/688/media/images/Mingle_159902_i0.png',
+  'profile-image': 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS3AqhlL_Ubqa8G_usBmy3q8z0cg8JieuVb1pV2nie4vikVEP5U',
   'avatar': 'http://info.thoughtworks.com/rs/thoughtworks2/images/glyph_badge.png',
   'nick': 'John Smith',
   'username': 'jsmith'
