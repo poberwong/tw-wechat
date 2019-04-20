@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import { Image, ImageBackground } from 'react-native'
+import { Image, ImageBackground, StyleSheet } from 'react-native'
 import FastImage from 'react-native-fast-image'
 
 export default class extends React.Component {
@@ -32,14 +32,15 @@ export default class extends React.Component {
   render () {
     const {isLoading, defaultHeight, defaultWidth} = this.state
     const {style = {}, source, defaultSource, ...otherProps} = this.props
-    style.height = style.height || defaultHeight
-    style.width = style.width || defaultWidth
+    const flattenStyle = StyleSheet.flatten(style)
+    flattenStyle.height = flattenStyle.height || defaultHeight
+    flattenStyle.width = flattenStyle.width || defaultWidth
 
     if (isLoading) {
       return (
         <ImageBackground
-          style={[style, {backgroundColor: 'transparent'}]}
-          imageStyle={{borderRadius: style.borderRadius}}
+          style={[flattenStyle, {backgroundColor: 'transparent'}]}
+          imageStyle={{borderRadius: flattenStyle.borderRadius}}
           source={defaultSource}
           {...otherProps}>
           <FastImage style={{flex: 1}} source={source} onLoad={this._onLoad} />
@@ -47,7 +48,7 @@ export default class extends React.Component {
       )
     } else {
       return (
-        <FastImage {...this.props} />
+        <FastImage {...this.props} style={flattenStyle} />
       )
     }
   }
