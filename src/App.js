@@ -5,21 +5,33 @@
  */
 
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Animated, SafeAreaView } from 'react-native'
 import BaseFlatList from './components/BaseFlatList'
-import { tweets } from './helpers/data'
+import { profile, tweets } from './helpers/data'
+import Image from './components/Image'
 import Avatar from './components/Avatar'
 import TweetText from './components/TweetText'
 import TweetImages from './components/TweetImages'
 import TweetComments from './components/TweetComments'
 import './helpers/global'
+import AnimatedImplementation from 'AnimatedImplementation'
+import { NAV_BAR_HEIGHT } from './components/NavigationBar'
 
 const PAGE_SIZE = 5
 const AVALIABLE_TWEETS = tweets.filter(
   tweet => (tweet.images || tweet.content)
 )
+const offset = SCREEN_HEIGHT * 0.4
+const HEADER_MAX_HEIGHT = NAV_BAR_HEIGHT + offset
+const HEADER_MIN_HEIGHT = NAV_BAR_HEIGHT
+const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT
+const AnimatedSafeAreaView = AnimatedImplementation.createAnimatedComponent(SafeAreaView)
 
 export default class App extends Component {
+  state = {
+    scrollY: new Animated.Value(0)
+  }
+
   _loadTweets = (offset) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -32,9 +44,37 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <BaseFlatList
+          scrollEventThrottle={16}
+          onScroll={
+            Animated.event([{
+              nativeEvent: {contentOffset: {y: this.state.scrollY}}
+            }])
+          }
+          ListHeaderComponent={this._renderProfile}
           keyExtractor={(item, index) => index + ''}
           renderItem={this._renderTweet}
           fetch={this._loadTweets} />
+        {this._renderHeader()}
+      </View>
+    )
+  }
+
+  _renderHeader () {
+    const navigationOpacity = this.state.scrollY.interpolate({
+      inputRange: [HEADER_SCROLL_DISTANCE / 3, HEADER_SCROLL_DISTANCE * 4 / 5],
+      outputRange: [0, 1],
+      extrapolate: 'clamp'
+    })
+
+    return (
+      <AnimatedSafeAreaView style={[styles.header, {opacity: navigationOpacity}]}>
+        <View style={[styles.navbar, {height: HEADER_MIN_HEIGHT}]}>
+          <Text style={[styles.navTitle]}>朋友圈</Text>
+        </View>
+      </AnimatedSafeAreaView>
+    )
+  }
+
   _renderProfile = () => {
     return (
       <View style={styles.profileContainer}>
