@@ -47,6 +47,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <BaseFlatList
           scrollEventThrottle={16}
+          data={AVALIABLE_TWEETS.slice(0, 5)}
           onScroll={
             Animated.event([{
               nativeEvent: {contentOffset: {y: this.state.scrollY}}

@@ -117,7 +117,6 @@ export default class BaseFlatList extends React.Component {
       <FlatList
         ref='list'
         renderScrollComponent={this._renderScrollComponent}
-        data={this.data}
         extraData={this.action}
         onEndReachedThreshold={0.01}
         onEndReached={this.loadMore}
@@ -125,6 +124,7 @@ export default class BaseFlatList extends React.Component {
         ListFooterComponent={this._renderFooter}
         showsVerticalScrollIndicator={false}
         {...this.props}
+        data={this.data}
         ListEmptyComponent={
           this.action || this.isNetError
             ? null
