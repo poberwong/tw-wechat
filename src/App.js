@@ -35,6 +35,12 @@ export default class App extends Component {
           keyExtractor={(item, index) => index + ''}
           renderItem={this._renderTweet}
           fetch={this._loadTweets} />
+  _renderProfile = () => {
+    return (
+      <View style={styles.profileContainer}>
+        <Image style={styles.profileBg} source={{uri: profile['profile-image']}} />
+        <Avatar size='large' style={styles.profileAvatar} source={{uri: profile.avatar}} />
+        <Text style={[styles.nickName, styles.profileNick]}>{profile.nick}</Text>
       </View>
     )
   }
@@ -64,10 +70,47 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#F5FCFF'
   },
+  header: {
+    backgroundColor: 'white',
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    left: 0
+  },
+  navbar: {
+    height: HEADER_MIN_HEIGHT,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  navTitle: {
+    fontSize: 18,
+    fontWeight: '400',
+    backgroundColor: 'transparent'
+  },
+  profileContainer: {
+    height: SCREEN_HEIGHT * 0.4,
+    marginBottom: 25
+  },
+  profileBg: {
+    width: '100%',
+    height: '100%'
+  },
+  profileAvatar: {
+    position: 'absolute',
+    right: 12,
+    bottom: -25
+  },
+  profileNick: {
+    position: 'absolute',
+    right: 100,
+    bottom: 8,
+    color: 'white',
+    fontSize: 16
+  },
   tweetContainer: {
     flexDirection: 'row',
     borderColor: '#ccc',
-    borderTopWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     paddingVertical: 14,
     paddingHorizontal: 12
   },
