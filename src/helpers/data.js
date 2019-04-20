@@ -118,7 +118,7 @@ export const tweets = [
     },
     'comments': [
       {
-        'content': 'Good.',
+        'content': 'Good.As a programmer, we should as far as possible away from the Windows system. However, the most a professional programmer, and very difficult to bypass',
         'sender': {
           'username': 'outman',
           'nick': 'Super hero',
@@ -126,7 +126,7 @@ export const tweets = [
         }
       },
       {
-        'content': 'Like it too',
+        'content': 'Like it too, As a programmer, we should as far as possible away from the Windows system. However, the most a professional programmer, and very difficult to bypass',
         'sender': {
           'username': 'inman',
           'nick': 'Doggy Over',
