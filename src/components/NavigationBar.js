@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 import {
   Text,
   View,
-  Platform,
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
   ViewPropTypes
 } from 'react-native'
 
-export const NAV_BAR_HEIGHT = (Platform.OS === 'ios' ? 44 : 56)
+export const NAV_BAR_HEIGHT = (iOS ? 44 : 56)
 export default class extends Component {
   static propTypes = {
     leftView: PropTypes.node,

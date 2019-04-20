@@ -3,12 +3,9 @@
  */
 
 import React from 'react'
-import {
-  View
-} from 'react-native'
+import { View } from 'react-native'
 
 /**
- * 应该可以使用样式解决
  * @param arr
  * @param rowLength
  * @param style

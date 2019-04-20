@@ -1,9 +1,6 @@
 /**
  * Created by poberwong on 2019-04-20.
  */
-/**
- * Created by poberwong on 2019-04-20.
- */
 
 import React from 'react'
 import PropTypes from 'prop-types'
