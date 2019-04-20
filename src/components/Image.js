@@ -37,7 +37,11 @@ export default class extends React.Component {
 
     if (isLoading) {
       return (
-        <ImageBackground style={[style, {backgroundColor: 'transparent'}]} source={defaultSource} {...otherProps}>
+        <ImageBackground
+          style={[style, {backgroundColor: 'transparent'}]}
+          imageStyle={{borderRadius: style.borderRadius}}
+          source={defaultSource}
+          {...otherProps}>
           <FastImage style={{flex: 1}} source={source} onLoad={this._onLoad} />
         </ImageBackground>
       )
