@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent'
   },
   profileContainer: {
+    backgroundColor: Color.background.common,
     height: SCREEN_HEIGHT * 0.4,
     marginBottom: 25
   },
@@ -152,6 +153,7 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   tweetContainer: {
+    backgroundColor: Color.background.tweet,
     flexDirection: 'row',
     borderColor: '#ccc',
     borderBottomWidth: StyleSheet.hairlineWidth,

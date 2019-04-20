@@ -9,7 +9,8 @@ export const Color = {
   },
   background: {
     common: 'white',
-    comment: '#f2f2f2'
+    comment: '#f2f2f2',
+    tweet: 'white'
   },
   header: {
     common: '#ececec'
