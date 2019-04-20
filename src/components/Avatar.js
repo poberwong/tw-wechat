@@ -8,14 +8,15 @@ import PropTypes from 'prop-types'
 import {StyleSheet} from 'react-native'
 
 export default function Avatar (props) {
-  const {size, ...rest} = props
+  const {size, style, ...rest} = props
   return (
-    <Image style={styles[size]} {...rest} />
+    <Image style={[styles[size], style]} {...rest} />
   )
 }
 
 Avatar.propTypes = {
-  size: PropTypes.oneOf(['normal', 'large'])
+  size: PropTypes.oneOf(['normal', 'large']),
+  style: Image.propTypes.style
 }
 
 Avatar.defaultProps = {

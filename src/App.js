@@ -36,7 +36,7 @@ export default class App extends Component {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(AVALIABLE_TWEETS.slice(offset, offset + PAGE_SIZE))
-      }, 0)
+      }, 1300)
     })
   }
 
@@ -85,7 +85,7 @@ export default class App extends Component {
     )
   }
 
-  _renderTweet = ({ item }) => {
+  _renderTweet = ({item}) => {
     return (
       <View style={styles.tweetContainer}>
         <Avatar source={{uri: (item.sender || {}).avatar}} />
@@ -93,10 +93,12 @@ export default class App extends Component {
           <Text style={styles.nickName}>{(item.sender || {}).nick}</Text>
           {item.content && <TweetText style={{marginTop: 3}} content={item.content} />}
           {(item.images && item.images.length > 0) &&
-            <TweetImages urls={item.images.map(item => item.url)} />
+          <TweetImages
+            style={{marginTop: 12}}
+            urls={item.images.map(item => item.url)} />
           }
           {(item.comments && item.comments.length > 0) &&
-            <TweetComments style={{marginTop: 12}} comments={item.comments} />
+          <TweetComments style={{marginTop: 12}} comments={item.comments} />
           }
         </View>
       </View>

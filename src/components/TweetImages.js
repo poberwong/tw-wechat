@@ -5,13 +5,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Image from './Image'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, ViewPropTypes } from 'react-native'
 import { fixRow } from '../helpers/LayoutHelper'
 
 export default function TweetImages (props) {
-  const {urls} = props
+  const {urls, style} = props
   if (urls.length === 1) {
-    return <Image style={{marginTop: 5}} source={{uri: urls[0]}} />
+    return <Image style={style} source={{uri: urls[0]}} />
   }
 
   let views = urls.slice(0, 9).map((url, index) => (
@@ -22,14 +22,15 @@ export default function TweetImages (props) {
   ))
   views = fixRow(views, 3, styles.image)
   return (
-    <View style={styles.imagesWrapper}>
+    <View style={[styles.imagesWrapper, style]}>
       {views}
     </View>
   )
 }
 
 TweetImages.propTypes = {
-  urls: PropTypes.array
+  urls: PropTypes.array,
+  style: ViewPropTypes.style
 }
 
 /**
