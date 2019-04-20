@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- */
-
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, Animated, SafeAreaView } from 'react-native'
 import BaseFlatList from './components/BaseFlatList'
@@ -13,14 +7,22 @@ import Avatar from './components/Avatar'
 import TweetText from './components/TweetText'
 import TweetImages from './components/TweetImages'
 import TweetComments from './components/TweetComments'
-import './helpers/global'
 import AnimatedImplementation from 'AnimatedImplementation'
 import { NAV_BAR_HEIGHT } from './components/NavigationBar'
+import { Color } from './helpers/Constants'
+import './helpers/global'
 
+/**
+ * avaliable tweets and page size
+ */
 const PAGE_SIZE = 5
 const AVALIABLE_TWEETS = tweets.filter(
   tweet => (tweet.images || tweet.content)
 )
+
+/**
+ * constant of scroll animation
+ */
 const offset = SCREEN_HEIGHT * 0.4
 const HEADER_MAX_HEIGHT = NAV_BAR_HEIGHT + offset
 const HEADER_MIN_HEIGHT = NAV_BAR_HEIGHT
@@ -33,7 +35,7 @@ export default class App extends Component {
   }
 
   _loadTweets = (offset) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         resolve(AVALIABLE_TWEETS.slice(offset, offset + PAGE_SIZE))
       }, 1300)
@@ -110,10 +112,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: Color.background.common
   },
   header: {
-    backgroundColor: 'white',
+    backgroundColor: Color.header.common,
     position: 'absolute',
     top: 0,
     right: 0,
@@ -146,7 +148,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 100,
     bottom: 8,
-    color: 'white',
+    color: Color.nick.profile,
     fontSize: 16
   },
   tweetContainer: {
@@ -162,7 +164,7 @@ const styles = StyleSheet.create({
   },
   nickName: {
     fontSize: 17,
-    color: '#4b628D',
+    color: Color.nick.tweet,
     fontWeight: '500'
   }
 })

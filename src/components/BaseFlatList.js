@@ -217,8 +217,7 @@ const styles = StyleSheet.create({
   },
   noMoreText: {
     fontSize: 12,
-    fontFamily: '.PingFangSC-Light',
-    color: 'rgba(255, 255, 255, 0.6)'
+    fontFamily: '.PingFangSC-Light'
   },
   emptyPage: {
     flex: 1,

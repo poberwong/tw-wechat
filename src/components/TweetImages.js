@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '32%',
-    aspectRatio: 1,
+    aspectRatio: 1, // to make one of width or height same as another
     marginTop: 5,
     overflow: 'hidden'
   }
