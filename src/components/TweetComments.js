@@ -24,7 +24,7 @@ export default function TweetComments (props) {
 }
 
 TweetComments.propTypes = {
-  comments: PropTypes.string,
+  comments: PropTypes.array,
   style: Text.propTypes.style
 }
 
